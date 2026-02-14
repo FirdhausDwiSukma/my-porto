@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Button } from "./ui/Button";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Download } from "lucide-react";
 
 export const Hero = () => {
@@ -80,43 +80,49 @@ export const Hero = () => {
 };
 
 const BackgroundParticles = () => {
-    // A simple grid of dots that react to mouse would be complex to implement quickly without a canvas lib,
-    // so we will use floating spans for a similar "antigravity" ambient effect.
+    const [particles, setParticles] = useState<Array<{ x: number; y: number; size: number; duration: number }>>([]);
+
+    useEffect(() => {
+        setParticles(
+            [...Array(20)].map(() => ({
+                x: Math.random() * 100,
+                y: Math.random() * 100,
+                size: Math.random() * 4 + 1,
+                duration: Math.random() * 10 + 10,
+            }))
+        );
+    }, []);
+
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(20)].map((_, i) => (
-                <Particle key={i} index={i} />
+            {particles.map((p, i) => (
+                <Particle key={i} index={i} data={p} />
             ))}
         </div>
-    )
-}
+    );
+};
 
-const Particle = ({ index }: { index: number }) => {
-    const randomX = Math.random() * 100;
-    const randomY = Math.random() * 100;
-    const size = Math.random() * 4 + 1;
-    const duration = Math.random() * 10 + 10;
-
+const Particle = ({ index, data }: { index: number; data: { x: number; y: number; size: number; duration: number } }) => {
     return (
         <motion.div
             style={{
-                left: `${randomX}%`,
-                top: `${randomY}%`,
-                width: size,
-                height: size,
+                left: `${data.x}%`,
+                top: `${data.y}%`,
+                width: data.size,
+                height: data.size,
             }}
             animate={{
                 y: [0, -100, 0],
                 x: [0, 50, 0],
-                opacity: [0.2, 0.5, 0.2]
+                opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-                duration: duration,
+                duration: data.duration,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: index * 0.5
+                delay: index * 0.5,
             }}
             className="absolute rounded-full bg-zinc-400 dark:bg-zinc-600"
         />
-    )
-}
+    );
+};
