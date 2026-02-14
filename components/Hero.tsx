@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Button } from "./ui/Button";
 import { useRef, useState, useEffect } from "react";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 
 export const Hero = () => {
     const ref = useRef(null);
@@ -51,11 +51,35 @@ export const Hero = () => {
                     >
                         Start scrolling to explore
                     </motion.div>
-                    <h1 className="text-5xl font-bold tracking-tight sm:text-7xl md:text-8xl">
-                        Firdhaus Dwi Sukma
+                    <h1 className="text-5xl font-bold tracking-tight sm:text-7xl md:text-8xl flex flex-wrap justify-center gap-x-[0.2em] gap-y-2">
+                        {"Firdhaus Dwi Sukma".split(" ").map((word, wordIndex) => {
+                            // Calculate delay based on previous characters to create a continuous typing flow
+                            const previousChars = "Firdhaus Dwi Sukma".split(" ").slice(0, wordIndex).join(" ").length;
+                            // Add 1 for the space that was skipped in the join if it's not the first word
+                            const delayOffset = wordIndex > 0 ? (previousChars + 1) * 0.05 : 0;
+
+                            return (
+                                <span key={wordIndex} className="inline-block whitespace-nowrap">
+                                    {word.split("").map((char, charIndex) => (
+                                        <motion.span
+                                            key={charIndex}
+                                            className="inline-block"
+                                            initial={{ opacity: 0, display: "none" }}
+                                            animate={{ opacity: 1, display: "inline-block" }}
+                                            transition={{
+                                                delay: delayOffset + charIndex * 0.05, // 0.05s per character (fast)
+                                                duration: 0.01 // Instant appearance for crisp typing
+                                            }}
+                                        >
+                                            {char}
+                                        </motion.span>
+                                    ))}
+                                </span>
+                            );
+                        })}
                     </h1>
                     <p className="max-w-xl text-xl text-zinc-600 dark:text-zinc-400 sm:text-2xl">
-                        QA Engineer & Software Enthusiast building robust, interactive digital experiences.
+                        Quality Assurance Engineer Junior and Software Engineer Enthusiast.
                     </p>
                 </motion.div>
 
@@ -69,10 +93,12 @@ export const Hero = () => {
                         View Projects
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
-                    <Button variant="outline" size="lg" className="gap-2">
-                        Download CV
-                        <Download className="h-4 w-4" />
-                    </Button>
+                    <a href="https://www.linkedin.com/in/firdhausdwisukma/" target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="lg" className="gap-2">
+                            LinkedIn
+                            <Linkedin className="h-4 w-4" />
+                        </Button>
+                    </a>
                 </motion.div>
             </motion.div>
         </section>
