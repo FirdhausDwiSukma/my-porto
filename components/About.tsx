@@ -23,10 +23,9 @@ export const About = () => {
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">About Me</h2>
                     <div className="mx-auto max-w-3xl text-lg text-zinc-600 dark:text-zinc-400">
                         <p>
-                            I am a detail-oriented QA Engineer with a passion for software quality and user experience.
-                            With a strong background in both manual and automated testing, I bridge the gap between
-                            development and quality assurance to deliver robust, high-performing applications.
-                            Beyond finding bugs, I enjoy building projects that push the boundaries of interactivity.
+                            QA Engineer with experience in creating test plans, test cases, and test scripts, as well as managing bug tracking and reporting.
+                            Skilled in both manual and automation testing, including API and UI testing, and experienced in performance testing to ensure system reliability and scalability.
+                            Familiar with SDLC and STLC processes, with a strong focus on delivering high-quality software.
                         </p>
                     </div>
                 </motion.div>
