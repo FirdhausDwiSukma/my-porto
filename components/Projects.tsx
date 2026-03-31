@@ -9,21 +9,33 @@ import { ExternalLink, Github } from "lucide-react";
 // Placeholder data - replace with real projects later
 const projects = [
     {
-        title: "E-Commerce Test Suite",
-        description: "Automated end-to-end testing framework for a large-scale e-commerce platform using Cypress and TypeScript.",
-        tags: ["Cypress", "TypeScript", "CI/CD"],
+        title: "Dashtern - Dashboard Intern",
+        description: "Dashboard intern for management intern in company.",
+        tags: ["React", "TypeScript", "Tailwind", "Golang", "PostgreSQL"],
         image: "/project1-placeholder.jpg", // We will handle missing images gracefully or use a placeholder div
     },
     {
-        title: "Portfolio v1",
+        title: "ARFI - Augmented Reality Fitness",
+        description: "Full-stack functionality testing for a productivity application, ensuring real-time sync accuracy.",
+        tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
+        image: "/project3-placeholder.jpg",
+    },
+    {
+        title: "CoinCoffe - Find Coffee Nearby",
         description: "A clean, minimal portfolio website built with React and Tailwind CSS, focusing on accessibility and performance.",
-        tags: ["React", "Tailwind", "Accessibility"],
+        tags: ["Android Studio", "Kotlin", "Firebase"],
         image: "/project2-placeholder.jpg",
     },
     {
-        title: "Task Management App",
+        title: "Speech to Text Correction for Indonesian Early Marriage Counseling Chatbots Using IndoRoBERTa and Mistral-7B",
         description: "Full-stack functionality testing for a productivity application, ensuring real-time sync accuracy.",
-        tags: ["Selenium", "Java", "TestNG"],
+        tags: ["NLP", "AI", "IndoRoBERTa", "Mistral-7B", "LLM"],
+        image: "/project3-placeholder.jpg",
+    },
+    {
+        title: "ARFI - Augmented Reality Fitness",
+        description: "Full-stack functionality testing for a productivity application, ensuring real-time sync accuracy.",
+        tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
         image: "/project3-placeholder.jpg",
     },
 ];

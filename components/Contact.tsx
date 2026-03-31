@@ -46,7 +46,7 @@ export const Contact = () => {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold">Email</h3>
-                                <p className="text-zinc-600 dark:text-zinc-400">hello@firdhaus.dev</p>
+                                <p className="text-zinc-600 dark:text-zinc-400">firdausdwisukma@gmail.com</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
@@ -55,7 +55,7 @@ export const Contact = () => {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold">Location</h3>
-                                <p className="text-zinc-600 dark:text-zinc-400">Jakarta, Indonesia</p>
+                                <p className="text-zinc-600 dark:text-zinc-400">Bandung, Indonesia</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
@@ -64,7 +64,7 @@ export const Contact = () => {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold">Phone</h3>
-                                <p className="text-zinc-600 dark:text-zinc-400">+62 812 3456 7890</p>
+                                <p className="text-zinc-600 dark:text-zinc-400">+62 813 8444 5202</p>
                             </div>
                         </div>
                     </motion.div>
@@ -83,7 +83,7 @@ export const Contact = () => {
                                             id="name"
                                             type="text"
                                             className="w-full rounded-md border border-zinc-200 bg-transparent px-3 py-2 text-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-950 dark:border-zinc-800 dark:focus:ring-zinc-300"
-                                            placeholder="John Doe"
+                                            placeholder="Name"
                                             required
                                         />
                                     </div>
@@ -93,7 +93,7 @@ export const Contact = () => {
                                             id="email"
                                             type="email"
                                             className="w-full rounded-md border border-zinc-200 bg-transparent px-3 py-2 text-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-950 dark:border-zinc-800 dark:focus:ring-zinc-300"
-                                            placeholder="john@example.com"
+                                            placeholder="email"
                                             required
                                         />
                                     </div>
