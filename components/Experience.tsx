@@ -5,21 +5,15 @@ import { Card } from "./ui/Card";
 
 const experience = [
     {
-        role: "Senior QA Engineer",
-        company: "TechCorp Inc.",
-        date: "2023 - Present",
-        description: "Leading the QA automation team, implementing CI/CD pipelines, and reducing regression testing time by 40%.",
+        role: "Junior QA Engineer",
+        company: "PT. Eigerindo MPI",
+        date: "2025 - Present",
+        description: "Automation and manual testing for web. Test documents and bug report.",
     },
     {
-        role: "QA Automation Engineer",
-        company: "StartUp Solutions",
-        date: "2021 - 2023",
-        description: "Developed automated test scripts using Selenium and Python. Collaborated with developers to fix critical bugs before release.",
-    },
-    {
-        role: "Junior QA Tester",
-        company: "WebDev Agency",
-        date: "2019 - 2021",
+        role: "Junior Quality Assurance",
+        company: "PT. Neuronworks Indonesia",
+        date: "2023",
         description: "Performed manual testing for web and mobile applications. Documented bug reports and verified fixes.",
     },
 ];

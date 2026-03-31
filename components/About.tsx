@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Card } from "./ui/Card";
 
 const skills = [
-    { category: "QA Engineering", items: ["Selenium", "Cypress", "Appium", "Playwright", "Jest", "Manual Testing"] },
-    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
-    { category: "Tools & DevOps", items: ["Git", "Docker", "Jenkins", "Postman", "JIRA", "Agile/Scrum"] },
+    { category: "QA Engineering", items: ["Software Testing Artifacts", "Cypress", "JavaScript", "Manual Testing"] },
+    { category: "Frontend", items: ["React", "TypeScript", "Tailwind CSS"] },
+    { category: "Tools & DevOps", items: ["Git", "Postman", "JIRA", "Agile/Scrum"] },
 ];
 
 export const About = () => {
