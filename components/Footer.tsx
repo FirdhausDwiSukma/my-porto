@@ -1,12 +1,20 @@
 export const Footer = () => {
     return (
-        <footer className="border-t border-zinc-200 py-6 text-center text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+        <footer className="bg-[#1a1a1a] py-8 text-center">
             <div className="container mx-auto px-6">
-                <p>&copy; {new Date().getFullYear()} Firdhaus Dwi Sukma. All rights reserved.</p>
-                <div className="mt-2 flex justify-center gap-4">
-                    <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Twitter</a>
-                    <a href="#" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
-                    <a href="#" className="hover:text-black dark:hover:text-white transition-colors">GitHub</a>
+                <p className="text-sm font-bold text-[#F5F0E8]/60 mb-4">
+                    &copy; {new Date().getFullYear()} Firdhaus Dwi Sukma. All rights reserved.
+                </p>
+                <div className="flex justify-center gap-3">
+                    {["Twitter", "LinkedIn", "GitHub"].map((link) => (
+                        <a
+                            key={link}
+                            href="#"
+                            className="border-2 border-[#F5F0E8]/20 px-4 py-1.5 text-sm font-black text-[#F5F0E8]/60 hover:border-[#D4A853] hover:text-[#D4A853] transition-colors"
+                        >
+                            {link}
+                        </a>
+                    ))}
                 </div>
             </div>
         </footer>

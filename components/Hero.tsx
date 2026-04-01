@@ -1,75 +1,73 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Linkedin } from "lucide-react";
 
 export const Hero = () => {
-    const ref = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end start"],
-    });
-
-    const y = useSpring(useTransform(scrollYProgress, [0, 1], [0, 200]), {
-        stiffness: 100,
-        damping: 30,
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
     return (
-        <section
-            ref={ref}
-            className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center"
-        >
-            <div className="absolute inset-0 -z-10">
-                <BackgroundParticles />
-            </div>
+        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center bg-[#F5F0E8]">
+            {/* Decorative grid background */}
+            <div
+                className="absolute inset-0 opacity-[0.04] pointer-events-none"
+                style={{
+                    backgroundImage: "linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px)",
+                    backgroundSize: "40px 40px",
+                }}
+            />
 
+            {/* Decorative shapes */}
             <motion.div
-                style={{ y, opacity }}
-                className="max-w-4xl space-y-8"
-            >
+                animate={{ rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-32 left-10 w-16 h-16 border-2 border-[#1a1a1a] bg-[#D4A853] hidden lg:block"
+                style={{ boxShadow: "4px 4px 0px #1a1a1a" }}
+            />
+            <motion.div
+                animate={{ rotate: [0, -8, 8, 0] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute top-40 right-16 w-12 h-12 border-2 border-[#1a1a1a] bg-[#7C9A6E] rounded-full hidden lg:block"
+                style={{ boxShadow: "4px 4px 0px #1a1a1a" }}
+            />
+            <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute bottom-40 left-20 w-10 h-10 border-2 border-[#1a1a1a] bg-[#C17B6F] hidden lg:block"
+                style={{ boxShadow: "3px 3px 0px #1a1a1a", transform: "rotate(45deg)" }}
+            />
+
+            <div className="max-w-4xl space-y-8 relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="flex flex-col items-center gap-4"
+                    transition={{ duration: 0.6 }}
+                    className="flex flex-col items-center gap-6"
                 >
+                    {/* Badge */}
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 100,
-                            damping: 20,
-                            delay: 0.2
-                        }}
-                        className="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+                        transition={{ delay: 0.2 }}
+                        className="border-2 border-[#1a1a1a] bg-[#D4A853] px-4 py-1.5 text-sm font-bold text-[#1a1a1a]"
+                        style={{ boxShadow: "3px 3px 0px #1a1a1a" }}
                     >
-                        Start scrolling to explore
+                        👋 Available for opportunities
                     </motion.div>
-                    <h1 className="text-5xl font-bold tracking-tight sm:text-7xl md:text-8xl flex flex-wrap justify-center gap-x-[0.2em] gap-y-2">
-                        {"Firdhaus Dwi Sukma".split(" ").map((word, wordIndex) => {
-                            // Calculate delay based on previous characters to create a continuous typing flow
-                            const previousChars = "Firdhaus Dwi Sukma".split(" ").slice(0, wordIndex).join(" ").length;
-                            // Add 1 for the space that was skipped in the join if it's not the first word
-                            const delayOffset = wordIndex > 0 ? (previousChars + 1) * 0.05 : 0;
 
+                    {/* Name */}
+                    <h1 className="text-5xl font-black tracking-tight sm:text-7xl md:text-8xl leading-none text-[#1a1a1a]">
+                        {"Firdhaus Dwi Sukma".split(" ").map((word, wordIndex) => {
+                            const previousChars = "Firdhaus Dwi Sukma".split(" ").slice(0, wordIndex).join(" ").length;
+                            const delayOffset = wordIndex > 0 ? (previousChars + 1) * 0.04 : 0;
                             return (
-                                <span key={wordIndex} className="inline-block whitespace-nowrap">
+                                <span key={wordIndex} className="inline-block mr-[0.2em]">
                                     {word.split("").map((char, charIndex) => (
                                         <motion.span
                                             key={charIndex}
                                             className="inline-block"
-                                            initial={{ opacity: 0, display: "none" }}
-                                            animate={{ opacity: 1, display: "inline-block" }}
-                                            transition={{
-                                                delay: delayOffset + charIndex * 0.05, // 0.05s per character (fast)
-                                                duration: 0.01 // Instant appearance for crisp typing
-                                            }}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: delayOffset + charIndex * 0.04, duration: 0.01 }}
                                         >
                                             {char}
                                         </motion.span>
@@ -78,15 +76,24 @@ export const Hero = () => {
                             );
                         })}
                     </h1>
-                    <p className="max-w-xl text-xl text-zinc-600 dark:text-zinc-400 sm:text-2xl">
-                        Quality Assurance Engineer Junior and Software Engineer Enthusiast.
+
+                    {/* Underline accent */}
+                    <motion.div
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ delay: 1.2, duration: 0.5 }}
+                        className="h-2 w-48 bg-[#D4A853] border-2 border-[#1a1a1a] origin-left"
+                    />
+
+                    <p className="max-w-xl text-xl text-[#1a1a1a]/70 sm:text-2xl font-medium">
+                        Quality Assurance Engineer & Software Engineer Enthusiast.
                     </p>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
                     className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
                 >
                     <Button size="lg" className="group gap-2">
@@ -100,55 +107,17 @@ export const Hero = () => {
                         </Button>
                     </a>
                 </motion.div>
+            </div>
+
+            {/* Scroll indicator */}
+            <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-10 flex flex-col items-center gap-2 text-sm font-bold text-[#1a1a1a]/50"
+            >
+                <span>Scroll</span>
+                <div className="w-0.5 h-8 bg-[#1a1a1a]/30" />
             </motion.div>
         </section>
-    );
-};
-
-const BackgroundParticles = () => {
-    const [particles, setParticles] = useState<Array<{ x: number; y: number; size: number; duration: number }>>([]);
-
-    useEffect(() => {
-        setParticles(
-            [...Array(20)].map(() => ({
-                x: Math.random() * 100,
-                y: Math.random() * 100,
-                size: Math.random() * 4 + 1,
-                duration: Math.random() * 10 + 10,
-            }))
-        );
-    }, []);
-
-    return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {particles.map((p, i) => (
-                <Particle key={i} index={i} data={p} />
-            ))}
-        </div>
-    );
-};
-
-const Particle = ({ index, data }: { index: number; data: { x: number; y: number; size: number; duration: number } }) => {
-    return (
-        <motion.div
-            style={{
-                left: `${data.x}%`,
-                top: `${data.y}%`,
-                width: data.size,
-                height: data.size,
-            }}
-            animate={{
-                y: [0, -100, 0],
-                x: [0, 50, 0],
-                opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-                duration: data.duration,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.5,
-            }}
-            className="absolute rounded-full bg-zinc-400 dark:bg-zinc-600"
-        />
     );
 };

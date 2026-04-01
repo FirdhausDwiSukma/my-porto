@@ -8,28 +8,30 @@ interface CardProps {
     children: ReactNode;
     className?: string;
     hoverEffect?: boolean;
+    accent?: "yellow" | "green" | "rose" | "none";
 }
 
-export const Card = ({ children, className, hoverEffect = true }: CardProps) => {
+export const Card = ({ children, className, hoverEffect = true, accent = "none" }: CardProps) => {
+    const accentBorder = {
+        yellow: "border-t-4 border-t-[#D4A853]",
+        green: "border-t-4 border-t-[#7C9A6E]",
+        rose: "border-t-4 border-t-[#C17B6F]",
+        none: "",
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            whileHover={
-                hoverEffect
-                    ? {
-                        y: -5,
-                        boxShadow:
-                            "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                    }
-                    : {}
-            }
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            whileHover={hoverEffect ? { x: -3, y: -3 } : {}}
             className={cn(
-                "rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950/50 backdrop-blur-sm",
+                "border-2 border-[#1a1a1a] bg-[#FDFAF4] p-6",
+                accentBorder[accent],
                 className
             )}
+            style={{ boxShadow: "4px 4px 0px #1a1a1a" }}
         >
             {children}
         </motion.div>

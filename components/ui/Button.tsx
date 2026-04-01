@@ -4,7 +4,7 @@ import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ButtonProps extends HTMLMotionProps<"button"> {
-    variant?: "primary" | "secondary" | "outline" | "ghost";
+    variant?: "primary" | "secondary" | "outline" | "ghost" | "accent";
     size?: "sm" | "md" | "lg";
 }
 
@@ -16,17 +16,19 @@ export const Button = ({
     ...props
 }: ButtonProps) => {
     const baseStyles =
-        "inline-flex items-center justify-center rounded-full font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+        "inline-flex items-center justify-center font-bold border-2 border-[#1a1a1a] transition-all focus:outline-none disabled:opacity-50 disabled:pointer-events-none";
 
     const variants = {
         primary:
-            "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200",
+            "bg-[#1a1a1a] text-[#F5F0E8] hover:bg-[#D4A853] hover:text-[#1a1a1a]",
         secondary:
-            "bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700",
+            "bg-[#D4A853] text-[#1a1a1a] hover:bg-[#c49843]",
         outline:
-            "border border-zinc-200 bg-transparent hover:bg-zinc-100 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100",
+            "bg-transparent text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#F5F0E8]",
         ghost:
-            "bg-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100",
+            "border-transparent bg-transparent text-[#1a1a1a] hover:bg-[#1a1a1a]/10",
+        accent:
+            "bg-[#7C9A6E] text-white hover:bg-[#6a8860] border-[#1a1a1a]",
     };
 
     const sizes = {
@@ -37,9 +39,10 @@ export const Button = ({
 
     return (
         <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #1a1a1a" }}
+            whileTap={{ x: 2, y: 2, boxShadow: "0px 0px 0px #1a1a1a" }}
             className={cn(baseStyles, variants[variant], sizes[size], className)}
+            style={{ boxShadow: "2px 2px 0px #1a1a1a" }}
             {...props}
         >
             {children}
