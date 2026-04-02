@@ -6,7 +6,7 @@ export const Footer = () => {
                     &copy; {new Date().getFullYear()} Firdhaus Dwi Sukma. All rights reserved.
                 </p>
                 <div className="flex justify-center gap-3">
-                    {["Twitter", "LinkedIn", "GitHub"].map((link) => (
+                    {["LinkedIn", "GitHub"].map((link) => (
                         <a
                             key={link}
                             href="#"

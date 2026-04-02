@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { Card } from "./ui/Card";
 
 const skills = [
-    { category: "QA Engineering", items: ["Software Testing Artifacts", "Cypress", "JavaScript", "Manual Testing"], accent: "yellow" as const },
-    { category: "Frontend", items: ["React", "TypeScript", "Tailwind CSS"], accent: "green" as const },
+    { category: "QA Engineering", items: ["Software Testing Artifacts", "Cypress", "JavaScript", "Automation Testing", "Manual Testing"], accent: "yellow" as const },
+    { category: "Frontend", items: ["React", "Laravel", "Tailwind CSS"], accent: "green" as const },
     { category: "Tools & DevOps", items: ["Git", "Postman", "JIRA", "Agile/Scrum"], accent: "rose" as const },
 ];
 

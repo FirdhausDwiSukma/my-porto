@@ -2,23 +2,20 @@
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
+import { Mail, MapPin, Clock, Send } from "lucide-react";
 
 const contactInfo = [
     { icon: Mail, label: "Email", value: "firdausdwisukma@gmail.com", color: "#D4A853" },
     { icon: MapPin, label: "Location", value: "Bandung, Indonesia", color: "#7C9A6E" },
-    { icon: Phone, label: "Phone", value: "+62 813 8444 5202", color: "#C17B6F" },
+    { icon: Clock, label: "Availability", value: "UTC+7 · Open to Work", color: "#C17B6F" },
 ];
 
-export const Contact = () => {
-    const [formState, setFormState] = useState<"idle" | "submitting" | "success">("idle");
+const EMAIL = "firdausdwisukma@gmail.com";
+const SUBJECT = "Let's Work Together";
+const BODY = "Hi Firdaus, I'd like to get in touch with you about...";
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setFormState("submitting");
-        setTimeout(() => setFormState("success"), 1500);
-    };
+export const Contact = () => {
+    const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
 
     return (
         <section id="contact" className="py-24 px-6 md:px-12 bg-[#FDFAF4] border-b-2 border-[#1a1a1a]">
@@ -66,54 +63,31 @@ export const Contact = () => {
                         ))}
                     </motion.div>
 
-                    {/* Form */}
+                    {/* CTA */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
                         <div
-                            className="border-2 border-[#1a1a1a] bg-[#F5F0E8] p-6"
+                            className="border-2 border-[#1a1a1a] bg-[#F5F0E8] p-8 flex flex-col justify-between h-full"
                             style={{ boxShadow: "5px 5px 0px #1a1a1a" }}
                         >
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                <div className="grid gap-4 md:grid-cols-2">
-                                    <div className="space-y-1">
-                                        <label htmlFor="name" className="text-xs font-black uppercase tracking-widest text-[#1a1a1a]">Name</label>
-                                        <input
-                                            id="name"
-                                            type="text"
-                                            className="w-full border-2 border-[#1a1a1a] bg-[#FDFAF4] px-3 py-2 text-sm font-medium text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 focus:outline-none focus:bg-[#D4A853]/20"
-                                            placeholder="Your name"
-                                            required
-                                        />
-                                    </div>
-                                    <div className="space-y-1">
-                                        <label htmlFor="email" className="text-xs font-black uppercase tracking-widest text-[#1a1a1a]">Email</label>
-                                        <input
-                                            id="email"
-                                            type="email"
-                                            className="w-full border-2 border-[#1a1a1a] bg-[#FDFAF4] px-3 py-2 text-sm font-medium text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 focus:outline-none focus:bg-[#D4A853]/20"
-                                            placeholder="your@email.com"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-                                <div className="space-y-1">
-                                    <label htmlFor="message" className="text-xs font-black uppercase tracking-widest text-[#1a1a1a]">Message</label>
-                                    <textarea
-                                        id="message"
-                                        className="min-h-[120px] w-full border-2 border-[#1a1a1a] bg-[#FDFAF4] px-3 py-2 text-sm font-medium text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 focus:outline-none focus:bg-[#D4A853]/20 resize-none"
-                                        placeholder="Tell me about your project..."
-                                        required
-                                    />
-                                </div>
-                                <Button type="submit" disabled={formState !== "idle"} className="w-full gap-2">
-                                    {formState === "idle" && (<>Send Message <Send className="h-4 w-4" /></>)}
-                                    {formState === "submitting" && "Sending..."}
-                                    {formState === "success" && "✓ Message Sent!"}
-                                </Button>
-                            </form>
+                            <div className="mb-8">
+                                <h3 className="text-2xl font-black text-[#1a1a1a] mb-3">Let's build something together.</h3>
+                                <p className="text-[#1a1a1a]/60 font-medium leading-relaxed">
+                                    Whether it's a new project, a collaboration, or just a quick hello — my inbox is always open.
+                                </p>
+                            </div>
+                            <motion.a
+                                href={mailtoLink}
+                                whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #1a1a1a" }}
+                                whileTap={{ x: 2, y: 2, boxShadow: "0px 0px 0px #1a1a1a" }}
+                                className="inline-flex items-center justify-center gap-2 w-full h-11 px-6 font-bold border-2 border-[#1a1a1a] bg-[#1a1a1a] text-[#F5F0E8] hover:bg-[#D4A853] hover:text-[#1a1a1a] transition-all"
+                                style={{ boxShadow: "2px 2px 0px #1a1a1a" }}
+                            >
+                                Send Email <Send className="h-4 w-4" />
+                            </motion.a>
                         </div>
                     </motion.div>
                 </div>
