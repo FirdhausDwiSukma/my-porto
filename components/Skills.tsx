@@ -8,13 +8,13 @@ import {
 
 const originalSkills = [
     { name: "React", icon: Code2, color: "#1a1a1a" },
-    { name: "Next.js", icon: Globe, color: "#1a1a1a" },
+    { name: "JavaScript", icon: Globe, color: "#1a1a1a" },
     { name: "TypeScript", icon: Terminal, color: "#1a1a1a" },
     { name: "Tailwind", icon: Layout, color: "#1a1a1a" },
     { name: "Selenium", icon: TestTube, color: "#1a1a1a" },
     { name: "Cypress", icon: Monitor, color: "#1a1a1a" },
-    { name: "Playwright", icon: Smartphone, color: "#1a1a1a" },
-    { name: "Appium", icon: Settings, color: "#1a1a1a" },
+    { name: "Figma", icon: Smartphone, color: "#1a1a1a" },
+    { name: "Postman", icon: Settings, color: "#1a1a1a" },
     { name: "Node.js", icon: Server, color: "#1a1a1a" },
     { name: "Git", icon: GitBranch, color: "#1a1a1a" },
     { name: "Docker", icon: Box, color: "#1a1a1a" },
