@@ -1,30 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F5F0E8;
-  --foreground: #1a1a1a;
-  --border: #1a1a1a;
-  --accent: #D4A853;
-  --accent-green: #7C9A6E;
-  --accent-rose: #C17B6F;
-  --shadow: 4px 4px 0px #1a1a1a;
-  --shadow-lg: 6px 6px 0px #1a1a1a;
+  --background: #FFE500;
+  --foreground: #000000;
+  --border: #000000;
+  --accent: #000000;
+  --shadow: 4px 4px 0px #000000;
+  --shadow-lg: 6px 6px 0px #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jetbrains-mono);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-jetbrains-mono), 'Courier New', monospace;
 }
 
-/* Neobrutalism scrollbar */
+/* Bold monochrome scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -38,6 +36,23 @@ body {
 
 /* Selection */
 ::selection {
-  background: var(--accent);
-  color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* Wave animation keyframes */
+@keyframes wave-shift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-200px); }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Ticker tape / decorative stripe pattern */
+@keyframes ticker {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
 }

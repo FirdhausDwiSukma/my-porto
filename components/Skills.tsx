@@ -7,43 +7,39 @@ import {
 } from "lucide-react";
 
 const originalSkills = [
-    { name: "React", icon: Code2, color: "#1a1a1a" },
-    { name: "JavaScript", icon: Globe, color: "#1a1a1a" },
-    { name: "TypeScript", icon: Terminal, color: "#1a1a1a" },
-    { name: "Tailwind", icon: Layout, color: "#1a1a1a" },
-    { name: "k6", icon: TestTube, color: "#1a1a1a" },
-    { name: "Cypress", icon: Monitor, color: "#1a1a1a" },
-    { name: "Figma", icon: Smartphone, color: "#1a1a1a" },
-    { name: "Postman", icon: Settings, color: "#1a1a1a" },
-    { name: "Node.js", icon: Server, color: "#1a1a1a" },
-    { name: "Git", icon: GitBranch, color: "#1a1a1a" },
-    { name: "Mocha", icon: Box, color: "#1a1a1a" },
-    { name: "CI/CD", icon: Layers, color: "#1a1a1a" },
-    { name: "Chai", icon: Cpu, color: "#1a1a1a" },
-    { name: "Jmeter", icon: Database, color: "#1a1a1a" },
+    { name: "React", icon: Code2 },
+    { name: "JavaScript", icon: Globe },
+    { name: "TypeScript", icon: Terminal },
+    { name: "Tailwind", icon: Layout },
+    { name: "k6", icon: TestTube },
+    { name: "Cypress", icon: Monitor },
+    { name: "Figma", icon: Smartphone },
+    { name: "Postman", icon: Settings },
+    { name: "Node.js", icon: Server },
+    { name: "Git", icon: GitBranch },
+    { name: "Mocha", icon: Box },
+    { name: "CI/CD", icon: Layers },
+    { name: "Chai", icon: Cpu },
+    { name: "Jmeter", icon: Database },
 ];
 
 const skills = [...originalSkills, ...originalSkills];
 
-// Alternate card colors for visual interest
-const cardColors = ["#D4A853", "#7C9A6E", "#F5F0E8", "#C17B6F", "#D4A853", "#F5F0E8", "#7C9A6E"];
-
 export const Skills = () => {
     return (
-        <section id="skills" className="relative py-24 bg-[#F5F0E8] overflow-hidden border-b-2 border-[#1a1a1a]">
+        <section id="skills" className="relative py-24 bg-[#0a0a0a] overflow-hidden border-t border-white/5">
             <div className="container mx-auto px-6 text-center mb-16">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                        <div className="w-8 h-1 bg-[#D4A853]" />
-                        <span className="text-sm font-black uppercase tracking-widest text-[#D4A853]">Tech Stack</span>
-                        <div className="w-8 h-1 bg-[#D4A853]" />
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                        <span className="bg-[#FFE500] text-[#000] text-[10px] font-extrabold px-2 py-1 uppercase tracking-widest">02</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">{">"} Tech Stack</span>
                     </div>
-                    <h2 className="text-4xl font-black tracking-tight sm:text-5xl text-[#1a1a1a] mb-4">Technical Skills</h2>
-                    <p className="text-[#1a1a1a]/60 max-w-2xl mx-auto font-medium">
+                    <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white mb-4">Technical Skills</h2>
+                    <p className="text-white/30 max-w-2xl mx-auto font-medium text-sm">
                         Tools and technologies I use to build and break software.
                     </p>
                 </motion.div>
@@ -51,22 +47,19 @@ export const Skills = () => {
 
             <div className="flex w-full overflow-hidden py-4">
                 <motion.div
-                    className="flex gap-6 px-6"
+                    className="flex gap-4 px-6"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{ duration: 35, ease: "linear", repeat: Infinity }}
                 >
-                    {skills.map((skill, index) => {
-                        const bg = cardColors[index % cardColors.length];
-                        return (
-                            <SkillCard key={`${skill.name}-${index}`} skill={skill} index={index} bg={bg} />
-                        );
-                    })}
+                    {skills.map((skill, index) => (
+                        <SkillCard key={`${skill.name}-${index}`} skill={skill} index={index} />
+                    ))}
                 </motion.div>
             </div>
 
             {/* Fade masks */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#F5F0E8] to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#F5F0E8] to-transparent" />
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
         </section>
     );
 };
@@ -74,24 +67,19 @@ export const Skills = () => {
 interface Skill {
     name: string;
     icon: React.ElementType;
-    color: string;
 }
 
-const SkillCard = ({ skill, index, bg }: { skill: Skill; index: number; bg: string }) => {
+const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
     return (
         <motion.div
-            animate={{ y: [-8, 8, -8] }}
+            animate={{ y: [-6, 6, -6] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: -index * 0.25 }}
             className="flex-shrink-0"
         >
-            <motion.div
-                className="flex flex-col items-center justify-center gap-3 w-28 h-28 border-2 border-[#1a1a1a] cursor-pointer"
-                style={{ backgroundColor: bg, boxShadow: "4px 4px 0px #1a1a1a" }}
-                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #1a1a1a" }}
-            >
-                <skill.icon className="h-8 w-8 text-[#1a1a1a]" />
-                <span className="text-xs font-black text-[#1a1a1a] uppercase tracking-wide">{skill.name}</span>
-            </motion.div>
+            <div className="flex flex-col items-center justify-center gap-3 w-28 h-28 border border-white/10 bg-[#111] cursor-pointer hover:border-[#FFE500]/40 transition-colors">
+                <skill.icon className="h-7 w-7 text-[#FFE500]/70" />
+                <span className="text-[9px] font-extrabold text-white/50 uppercase tracking-[0.15em]">{skill.name}</span>
+            </div>
         </motion.div>
     );
 };

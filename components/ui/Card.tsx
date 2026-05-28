@@ -13,9 +13,9 @@ interface CardProps {
 
 export const Card = ({ children, className, hoverEffect = true, accent = "none" }: CardProps) => {
     const accentBorder = {
-        yellow: "border-t-4 border-t-[#D4A853]",
-        green: "border-t-4 border-t-[#7C9A6E]",
-        rose: "border-t-4 border-t-[#C17B6F]",
+        yellow: "border-t-4 border-t-[#000]",
+        green: "border-t-4 border-t-[#000]",
+        rose: "border-t-4 border-t-[#000]",
         none: "",
     };
 
@@ -27,11 +27,11 @@ export const Card = ({ children, className, hoverEffect = true, accent = "none" 
             transition={{ duration: 0.4, ease: "easeOut" }}
             whileHover={hoverEffect ? { x: -3, y: -3 } : {}}
             className={cn(
-                "border-2 border-[#1a1a1a] bg-[#FDFAF4] p-6",
+                "border-2 border-[#000] bg-[#FFE500] p-6",
                 accentBorder[accent],
                 className
             )}
-            style={{ boxShadow: "4px 4px 0px #1a1a1a" }}
+            style={{ boxShadow: "4px 4px 0px #000" }}
         >
             {children}
         </motion.div>

@@ -13,70 +13,75 @@ const navItems = [
 ];
 
 export const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     return (
         <motion.header
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 transition-all duration-300 ${
-                scrolled
-                    ? "bg-[#F5F0E8] border-b-2 border-[#1a1a1a] py-3"
-                    : "bg-transparent"
-            }`}
+            className="fixed top-0 left-0 right-0 z-50 bg-[#FFE500] border-b-2 border-[#000]"
         >
-            <Link
-                href="/"
-                className="text-xl font-black tracking-tighter text-[#1a1a1a] hover:text-[#D4A853] transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-            >
-                Firdhaus<span className="text-[#D4A853]">.dev</span>
-            </Link>
+            <div className="flex items-center justify-between px-6 py-3 md:px-12">
+                <Link
+                    href="/"
+                    className="flex items-center gap-2 text-sm font-extrabold tracking-tight text-[#000] hover:opacity-60 transition-opacity uppercase"
+                    onClick={() => setMobileMenuOpen(false)}
+                >
+                    <span className="text-lg tracking-tighter">///</span>
+                    <span>Firdhaus</span>
+                </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
-                {navItems.map((item) => (
-                    <Link
-                        key={item.name}
-                        href={item.href}
-                        className="px-4 py-2 text-sm font-bold text-[#1a1a1a] border-2 border-transparent hover:border-[#1a1a1a] hover:bg-[#D4A853] transition-all"
-                    >
-                        {item.name}
-                    </Link>
-                ))}
-            </nav>
+                {/* Desktop Nav */}
+                <nav className="hidden md:flex items-center gap-0">
+                    {navItems.map((item) => (
+                        <Link
+                            key={item.name}
+                            href={item.href}
+                            className="px-4 py-2 text-[11px] font-bold text-[#000] uppercase tracking-[0.15em] hover:bg-[#000] hover:text-[#FFE500] transition-all"
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
+                    {/* Motion+ style button */}
+                    <div className="ml-4 flex items-center gap-3">
+                        <span className="text-[#000]/40 text-sm">⌕</span>
+                        <a
+                            href="https://www.linkedin.com/in/firdhausdwisukma/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-2 border-[#000] px-3 py-1.5 text-[10px] font-extrabold text-[#000] uppercase tracking-widest hover:bg-[#000] hover:text-[#FFE500] transition-all relative"
+                            style={{
+                                borderStyle: "dashed",
+                            }}
+                        >
+                            LinkedIn ↗
+                        </a>
+                    </div>
+                </nav>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-                whileHover={{ x: -2, y: -2 }}
-                whileTap={{ x: 1, y: 1 }}
-                className="md:hidden border-2 border-[#1a1a1a] bg-[#1a1a1a] text-[#F5F0E8] px-4 py-2 text-sm font-bold relative z-50"
-                style={{ boxShadow: "2px 2px 0px #D4A853" }}
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-                {mobileMenuOpen ? "✕ Close" : "☰ Menu"}
-            </motion.button>
+                {/* Mobile Menu Button */}
+                <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="md:hidden border-2 border-[#000] bg-[#000] text-[#FFE500] px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider relative z-50"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
+                    {mobileMenuOpen ? "✕ Close" : "☰ Menu"}
+                </motion.button>
+            </div>
 
             {/* Mobile Nav */}
             {mobileMenuOpen && (
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-full left-0 right-0 bg-[#F5F0E8] border-b-2 border-[#1a1a1a] p-6 flex flex-col gap-2 md:hidden"
+                    className="bg-[#FFE500] border-t-2 border-[#000] p-4 flex flex-col gap-1 md:hidden"
                 >
                     {navItems.map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="block text-lg font-bold text-[#1a1a1a] border-2 border-transparent hover:border-[#1a1a1a] hover:bg-[#D4A853] px-4 py-2 transition-all"
+                            className="block text-sm font-bold text-[#000] uppercase tracking-wider hover:bg-[#000] hover:text-[#FFE500] px-4 py-2 transition-all"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             {item.name}

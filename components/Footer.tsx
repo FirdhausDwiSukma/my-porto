@@ -1,8 +1,8 @@
 export const Footer = () => {
     return (
-        <footer className="bg-[#1a1a1a] py-8 text-center">
+        <footer className="bg-white py-8 text-center border-t-2 border-[#000]/10">
             <div className="container mx-auto px-6">
-                <p className="text-sm font-bold text-[#F5F0E8]/60 mb-4">
+                <p className="text-xs font-bold text-[#000]/60 mb-4 uppercase tracking-widest">
                     &copy; {new Date().getFullYear()} Firdhaus Dwi Sukma. All rights reserved.
                 </p>
                 <div className="flex justify-center gap-3">
@@ -16,7 +16,7 @@ export const Footer = () => {
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="border-2 border-[#F5F0E8]/20 px-4 py-1.5 text-sm font-black text-[#F5F0E8]/60 hover:border-[#D4A853] hover:text-[#D4A853] transition-colors"
+                            className="border-2 border-[#000]/25 px-4 py-1.5 text-xs font-extrabold text-[#000]/60 uppercase tracking-widest hover:border-[#000] hover:text-[#000] hover:bg-[#FFE500] transition-all"
                         >
                             {label}
                         </a>

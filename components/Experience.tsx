@@ -16,7 +16,6 @@ const experience = [
             "Authored and documented systematic bug reports with clear reproduction steps to streamline issue identification and developer resolution.",
             "Executed manual functional and end-to-end (E2E) testing to validate overall system workflows against business requirements."
         ],
-        color: "#D4A853",
         status: "Current",
     },
     {
@@ -31,14 +30,13 @@ const experience = [
             "Documented and reported errors or bugs found during functional testing.",
             "Performed application performance testing."
         ],
-        color: "#7C9A6E",
         status: null,
     },
 ];
 
 export const Experience = () => {
     return (
-        <section id="experience" className="py-24 px-6 md:px-12 bg-[#F5F0E8] border-b-2 border-[#1a1a1a]">
+        <section id="experience" className="py-24 px-6 md:px-12 bg-[#0a0a0a] border-t border-white/5">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -46,11 +44,11 @@ export const Experience = () => {
                     viewport={{ once: true }}
                     className="mb-16"
                 >
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className="w-8 h-1 bg-[#D4A853]" />
-                        <span className="text-sm font-black uppercase tracking-widest text-[#D4A853]">Career</span>
+                    <div className="flex items-center gap-3 mb-6">
+                        <span className="bg-[#FFE500] text-[#000] text-[10px] font-extrabold px-2 py-1 uppercase tracking-widest">04</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">{">"} Career</span>
                     </div>
-                    <h2 className="text-4xl font-black tracking-tight sm:text-5xl text-[#1a1a1a]">Work Experience</h2>
+                    <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white mb-4 uppercase">Work Experience</h2>
                 </motion.div>
 
                 <div className="space-y-6">
@@ -63,38 +61,31 @@ export const Experience = () => {
                             transition={{ delay: index * 0.15 }}
                         >
                             <motion.div
-                                className="border-2 border-[#1a1a1a] bg-[#FDFAF4] overflow-hidden"
-                                style={{ boxShadow: "5px 5px 0px #1a1a1a" }}
-                                whileHover={{ x: -3, y: -3, boxShadow: "8px 8px 0px #1a1a1a" }}
+                                className="border-2 border-[#FFE500] bg-[#111] overflow-hidden"
+                                style={{ boxShadow: "5px 5px 0px #FFE500" }}
+                                whileHover={{ x: -3, y: -3, boxShadow: "8px 8px 0px #FFE500" }}
                             >
                                 {/* Colored top bar */}
-                                <div
-                                    className="h-2 border-b-2 border-[#1a1a1a]"
-                                    style={{ backgroundColor: item.color }}
-                                />
+                                <div className="h-2 border-b-2 border-[#FFE500] bg-[#FFE500]" />
                                 <div className="p-6 md:p-8">
                                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                                         <div className="flex-1">
                                             <div className="flex items-center gap-3 mb-2 flex-wrap">
-                                                <h3 className="text-xl font-black text-[#1a1a1a]">{item.role}</h3>
+                                                <h3 className="text-xl font-extrabold text-white uppercase">{item.role}</h3>
                                                 {item.status && (
-                                                    <span
-                                                        className="border-2 border-[#1a1a1a] px-2 py-0.5 text-xs font-black"
-                                                        style={{ backgroundColor: item.color }}
-                                                    >
+                                                    <span className="border-2 border-[#FFE500] bg-[#FFE500] text-[#000] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-widest">
                                                         {item.status}
                                                     </span>
                                                 )}
                                             </div>
-                                            <p className="text-base font-bold text-[#1a1a1a]/60 mb-4">{item.company}</p>
-                                            <p className="text-[#1a1a1a]/70 font-medium leading-relaxed mb-4">{item.description}</p>
+                                            <p className="text-sm font-bold text-white/40 mb-4 uppercase tracking-wide">{item.company}</p>
+                                            <p className="text-white/60 font-medium leading-relaxed mb-4 text-sm">{item.description}</p>
                                             {item.points && (
                                                 <ul className="space-y-3 pl-1">
                                                     {item.points.map((point, pIdx) => (
-                                                        <li key={pIdx} className="flex items-start gap-3 text-sm font-semibold text-[#1a1a1a]/80 leading-relaxed">
+                                                        <li key={pIdx} className="flex items-start gap-3 text-xs font-semibold text-white/60 leading-relaxed">
                                                             <span
-                                                                className="w-4 h-4 border-2 border-[#1a1a1a] flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-black animate-pulse"
-                                                                style={{ backgroundColor: item.color || "#1a1a1a", boxShadow: "1px 1px 0px #1a1a1a" }}
+                                                                className="w-4 h-4 border-2 border-[#FFE500] flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-extrabold bg-[#FFE500] text-[#000]"
                                                             >
                                                                 ✓
                                                             </span>
@@ -104,7 +95,7 @@ export const Experience = () => {
                                                 </ul>
                                             )}
                                         </div>
-                                        <div className="border-2 border-[#1a1a1a] bg-[#F5F0E8] px-4 py-2 text-sm font-black text-[#1a1a1a] whitespace-nowrap self-start">
+                                        <div className="border-2 border-[#FFE500] bg-[#000] text-[#FFE500] px-4 py-2 text-xs font-extrabold whitespace-nowrap self-start uppercase tracking-widest">
                                             {item.date}
                                         </div>
                                     </div>
