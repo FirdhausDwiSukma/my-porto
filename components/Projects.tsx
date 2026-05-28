@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
 import { ExternalLink, Github } from "lucide-react";
@@ -14,36 +15,49 @@ const projects = [
         hideLinks: true,
     },
     {
+        title: "B2C - Packaging Bubble Mailer",
+        description: "An inventory and calculation system designed to track and deduct bubble mailer (bubble wrap) packaging usage, integrated directly with SAP ERP for automated stock deduction. Personally served as the QA lead responsible for formulating test plans, writing comprehensive test cases, and executing both manual and automated testing to ensure seamless ERP integration.",
+        tags: ["Automation Testing", "Manual Testing", "Software Testing Artifacts"],
+        color: "#D4A853",
+        number: "02",
+        hideLinks: true,
+    },
+    {
         title: "Dashtern - Dashboard Intern",
         description: "Dashboard intern for management intern in company.",
         tags: ["React", "TypeScript", "Tailwind", "Golang", "PostgreSQL"],
-        color: "#D4A853",
-        number: "02",
+        color: "#C17B6F",
+        number: "03",
     },
     {
         title: "ARFI - Augmented Reality Fitness",
         description: "Full-stack functionality testing for a productivity application, ensuring real-time sync accuracy.",
         tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
-        color: "#C17B6F",
-        number: "03",
+        color: "#7C9A6E",
+        number: "04",
     },
     {
         title: "CoinCoffe - Find Coffee Nearby",
         description: "A clean, minimal app to find nearby coffee shops, built with Kotlin and Firebase.",
         tags: ["Android Studio", "Kotlin", "Firebase"],
         color: "#D4A853",
-        number: "04",
+        number: "05",
     },
     {
         title: "Speech to Text Correction for Indonesian Chatbots",
         description: "NLP research using IndoRoBERTa and Mistral-7B for early marriage counseling chatbot correction.",
         tags: ["NLP", "AI", "IndoRoBERTa", "Mistral-7B", "LLM"],
         color: "#C17B6F",
-        number: "05",
+        number: "06",
     },
 ];
 
 export const Projects = () => {
+    const [currentPage, setCurrentPage] = useState(0);
+    const projectsPerPage = 4;
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
+    const displayedProjects = projects.slice(currentPage * projectsPerPage, (currentPage + 1) * projectsPerPage);
+
     return (
         <section id="projects" className="py-24 px-6 md:px-12 bg-[#FDFAF4] border-b-2 border-[#1a1a1a]">
             <div className="max-w-6xl mx-auto">
@@ -64,13 +78,12 @@ export const Projects = () => {
                 </motion.div>
 
                 <div className="grid gap-6 md:grid-cols-2">
-                    {projects.map((project, index) => (
+                    {displayedProjects.map((project, index) => (
                         <motion.div
-                            key={index}
+                            key={project.number}
                             initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: (index % projectsPerPage) * 0.08 }}
                         >
                             <motion.div
                                 className="border-2 border-[#1a1a1a] bg-[#F5F0E8] overflow-hidden h-full flex flex-col"
@@ -123,6 +136,32 @@ export const Projects = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {projects.length > projectsPerPage && (
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 pt-8 border-t-2 border-[#1a1a1a]">
+                        <span className="text-sm font-black uppercase tracking-wider text-[#1a1a1a]/60">
+                            Page {currentPage + 1} of {totalPages}
+                        </span>
+                        <div className="flex gap-4">
+                            <button
+                                onClick={() => setCurrentPage((prev) => Math.max(0, prev - 1))}
+                                disabled={currentPage === 0}
+                                className="border-2 border-[#1a1a1a] bg-[#FDFAF4] px-5 py-2 text-sm font-black text-[#1a1a1a] disabled:opacity-40 disabled:pointer-events-none transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-0 active:translate-y-0"
+                                style={{ boxShadow: currentPage === 0 ? "none" : "4px 4px 0px #1a1a1a" }}
+                            >
+                                ← Prev
+                            </button>
+                            <button
+                                onClick={() => setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))}
+                                disabled={currentPage === totalPages - 1}
+                                className="border-2 border-[#1a1a1a] bg-[#D4A853] px-5 py-2 text-sm font-black text-[#1a1a1a] disabled:opacity-40 disabled:pointer-events-none transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-0 active:translate-y-0"
+                                style={{ boxShadow: currentPage === totalPages - 1 ? "none" : "4px 4px 0px #1a1a1a" }}
+                            >
+                                Next →
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );
