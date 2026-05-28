@@ -6,32 +6,40 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
     {
+        title: "Loyalty - Eiger Adventure Club",
+        description: "A web-based member loyalty application for Eiger Adventure Club that lets users register and redeem points for discounts at offline or online stores. Personally managed manual and automated testing, verified complex calculation logic for earning points, designed detailed test cases, created P(0) regression testing lists, and compiled pre-release bug reports to guarantee a seamless go-live.",
+        tags: ["Automation Testing", "Manual Testing", "Software Testing Artifacts"],
+        color: "#7C9A6E",
+        number: "01",
+        hideLinks: true,
+    },
+    {
         title: "Dashtern - Dashboard Intern",
         description: "Dashboard intern for management intern in company.",
         tags: ["React", "TypeScript", "Tailwind", "Golang", "PostgreSQL"],
         color: "#D4A853",
-        number: "01",
+        number: "02",
     },
     {
         title: "ARFI - Augmented Reality Fitness",
         description: "Full-stack functionality testing for a productivity application, ensuring real-time sync accuracy.",
         tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
-        color: "#7C9A6E",
-        number: "02",
+        color: "#C17B6F",
+        number: "03",
     },
     {
         title: "CoinCoffe - Find Coffee Nearby",
         description: "A clean, minimal app to find nearby coffee shops, built with Kotlin and Firebase.",
         tags: ["Android Studio", "Kotlin", "Firebase"],
-        color: "#C17B6F",
-        number: "03",
+        color: "#D4A853",
+        number: "04",
     },
     {
         title: "Speech to Text Correction for Indonesian Chatbots",
         description: "NLP research using IndoRoBERTa and Mistral-7B for early marriage counseling chatbot correction.",
         tags: ["NLP", "AI", "IndoRoBERTa", "Mistral-7B", "LLM"],
-        color: "#D4A853",
-        number: "04",
+        color: "#C17B6F",
+        number: "05",
     },
 ];
 
@@ -100,14 +108,16 @@ export const Projects = () => {
                                     <p className="mb-6 flex-1 text-sm text-[#1a1a1a]/60 font-medium leading-relaxed">
                                         {project.description}
                                     </p>
-                                    <div className="flex gap-3 mt-auto">
-                                        <Button variant="outline" size="sm" className="flex-1 gap-2">
-                                            <Github className="w-4 h-4" /> Code
-                                        </Button>
-                                        <Button size="sm" className="flex-1 gap-2">
-                                            <ExternalLink className="w-4 h-4" /> Live
-                                        </Button>
-                                    </div>
+                                    {!project.hideLinks && (
+                                        <div className="flex gap-3 mt-auto">
+                                            <Button variant="outline" size="sm" className="flex-1 gap-2">
+                                                <Github className="w-4 h-4" /> Code
+                                            </Button>
+                                            <Button size="sm" className="flex-1 gap-2">
+                                                <ExternalLink className="w-4 h-4" /> Live
+                                            </Button>
+                                        </div>
+                                    )}
                                 </div>
                             </motion.div>
                         </motion.div>
