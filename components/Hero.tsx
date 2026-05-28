@@ -19,7 +19,7 @@ export const Hero = () => {
 
             {/* Top decorative labels */}
             <div className="absolute top-28 left-6 md:left-12 flex items-center gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#000]/40">// Open Source</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#000]/40">// Portfolio</span>
             </div>
             <div className="absolute top-28 right-6 md:right-12">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#000]/40">v1.0.0</span>
@@ -76,7 +76,7 @@ export const Hero = () => {
                     </h1>
 
                     <p className="max-w-xl text-base text-[#000]/60 sm:text-lg font-medium">
-                        Quality Assurance Engineer & Software Engineer Enthusiast.
+                        Quality Assurance Engineer ,Software Engineer Enthusiast & AI Engineer Enthusiast.
                     </p>
 
                     {/* Decorative stripe */}

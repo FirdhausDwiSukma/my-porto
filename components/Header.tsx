@@ -29,7 +29,7 @@ export const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                 >
                     <span className="text-lg tracking-tighter">///</span>
-                    <span>Firdhaus</span>
+                    <span>usdhauss</span>
                 </Link>
 
                 {/* Desktop Nav */}
