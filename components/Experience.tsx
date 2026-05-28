@@ -6,16 +6,31 @@ const experience = [
     {
         role: "Junior QA Engineer",
         company: "PT. Eigerindo MPI",
-        date: "2025 - Present",
-        description: "Automation and manual testing for web. Test documents and bug report.",
+        date: "2025 - 2026",
+        description: "Led manual and automated quality assurance initiatives to deliver highly reliable software systems.",
+        points: [
+            "Created and managed comprehensive test cases and executed regression testing across multiple projects to ensure system stability following updates or feature releases.",
+            "Developed and maintained automated API test suites using JavaScript, Mocha, Chai, and Supertest to accelerate testing cycles and improve software quality.",
+            "Developed and executed performance testing using k6 and JMeter to evaluate system capacity under high traffic loads and concurrent user volumes.",
+            "Performed concurrency and race condition testing to verify optimal system performance under simultaneous data access.",
+            "Authored and documented systematic bug reports with clear reproduction steps to streamline issue identification and developer resolution.",
+            "Executed manual functional and end-to-end (E2E) testing to validate overall system workflows against business requirements."
+        ],
         color: "#D4A853",
         status: "Current",
     },
     {
-        role: "Junior Quality Assurance",
+        role: "Junior QA Engineer",
         company: "PT. Neuronworks Indonesia",
         date: "2023",
-        description: "Performed manual testing for web and mobile applications. Documented bug reports and verified fixes.",
+        description: "Performed manual and automated testing for web and mobile applications to guarantee functional integrity.",
+        points: [
+            "Tested the functionality of features in applications under development.",
+            "Developed API automation testing using Cypress.",
+            "Verified existing functionalities based on defined testing checklists.",
+            "Documented and reported errors or bugs found during functional testing.",
+            "Performed application performance testing."
+        ],
         color: "#7C9A6E",
         status: null,
     },
@@ -72,7 +87,22 @@ export const Experience = () => {
                                                 )}
                                             </div>
                                             <p className="text-base font-bold text-[#1a1a1a]/60 mb-4">{item.company}</p>
-                                            <p className="text-[#1a1a1a]/70 font-medium leading-relaxed">{item.description}</p>
+                                            <p className="text-[#1a1a1a]/70 font-medium leading-relaxed mb-4">{item.description}</p>
+                                            {item.points && (
+                                                <ul className="space-y-3 pl-1">
+                                                    {item.points.map((point, pIdx) => (
+                                                        <li key={pIdx} className="flex items-start gap-3 text-sm font-semibold text-[#1a1a1a]/80 leading-relaxed">
+                                                            <span
+                                                                className="w-4 h-4 border-2 border-[#1a1a1a] flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-black animate-pulse"
+                                                                style={{ backgroundColor: item.color || "#1a1a1a", boxShadow: "1px 1px 0px #1a1a1a" }}
+                                                            >
+                                                                ✓
+                                                            </span>
+                                                            <span>{point}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
                                         </div>
                                         <div className="border-2 border-[#1a1a1a] bg-[#F5F0E8] px-4 py-2 text-sm font-black text-[#1a1a1a] whitespace-nowrap self-start">
                                             {item.date}
