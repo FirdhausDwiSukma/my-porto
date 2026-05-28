@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Firdhaus Dwi Sukma — QA Engineer",
+  title: "Firdhaus Dwi Sukma - QA Engineer",
   description: "Portfolio of Firdhaus Dwi Sukma, Quality Assurance Engineer and Software Engineer Enthusiast.",
 };
 
