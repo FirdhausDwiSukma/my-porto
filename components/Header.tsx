@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const navItems = [
     { name: "About", href: "#about" },
@@ -45,7 +45,6 @@ export const Header = () => {
                     ))}
                     {/* Motion+ style button */}
                     <div className="ml-4 flex items-center gap-3">
-                        <span className="text-[#000]/40 text-sm">⌕</span>
                         <a
                             href="https://www.linkedin.com/in/firdhausdwisukma/"
                             target="_blank"
@@ -55,7 +54,7 @@ export const Header = () => {
                                 borderStyle: "dashed",
                             }}
                         >
-                            LinkedIn ↗
+                            LinkedIn &#8599;
                         </a>
                     </div>
                 </nav>
@@ -66,7 +65,7 @@ export const Header = () => {
                     className="md:hidden border-2 border-[#000] bg-[#000] text-[#FFE500] px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider relative z-50"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
-                    {mobileMenuOpen ? "✕ Close" : "☰ Menu"}
+                    {mobileMenuOpen ? "X Close" : "Menu"}
                 </motion.button>
             </div>
 
