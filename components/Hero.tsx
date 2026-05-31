@@ -76,7 +76,7 @@ export const Hero = () => {
                     </h1>
 
                     <p className="max-w-xl text-base text-[#000]/60 sm:text-lg font-medium">
-                        Quality Assurance Engineer ,Software Engineer Enthusiast & AI Engineer Enthusiast.
+                        Quality Assurance Engineer ,Software Engineer & AI Engineer Enthusiast.
                     </p>
 
                     {/* Decorative stripe */}
@@ -87,10 +87,12 @@ export const Hero = () => {
                     </div>
 
                     <div className="flex flex-col items-start gap-4 sm:flex-row">
-                        <Button size="lg" className="group gap-2">
-                            View Projects
-                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </Button>
+                        <a href="#projects">
+                            <Button size="lg" className="group gap-2">
+                                View Projects
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </Button>
+                        </a>
                         <a href="https://www.linkedin.com/in/firdhausdwisukma/" target="_blank" rel="noopener noreferrer">
                             <Button variant="outline" size="lg" className="gap-2">
                                 LinkedIn
