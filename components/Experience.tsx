@@ -45,7 +45,7 @@ export const Experience = () => {
                     className="mb-16"
                 >
                     <div className="flex items-center gap-3 mb-6">
-                        <span className="bg-[#FFE500] text-[#000] text-[10px] font-extrabold px-2 py-1 uppercase tracking-widest">04</span>
+                        <span className="bg-[#FFE500] text-[#000] text-[10px] font-extrabold px-2 py-1 uppercase tracking-widest">05</span>
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">{">"} Career</span>
                     </div>
                     <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white mb-4 uppercase">Work Experience</h2>
