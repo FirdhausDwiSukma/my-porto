@@ -28,7 +28,7 @@ const projects = [
     },
     {
         title: "ARFI - Augmented Reality Fitness",
-        description: "Full-stack functionality testing for a productivity application, ensuring real-time sync accuracy.",
+        description: "ARFI (Augmented Reality Fitness) is a virtual fitness coaching app built with Android Studio and Kotlin, integrated with Snapchat AR (Lens Studio/Camera Kit) for real-time body movement detection. It tracks users' movements during workouts and provides interactive visual guidance, delivering a more immersive and engaging fitness experience.",
         tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
         number: "04",
     },

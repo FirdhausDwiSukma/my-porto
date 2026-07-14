@@ -29,30 +29,6 @@ const certifications = [
         tags: ["Project Management", "Foundation"],
         number: "03",
     },
-    {
-        title: "Cypress End-to-End Testing",
-        issuer: "Udemy",
-        date: "Sep 2024",
-        credentialUrl: "#",
-        tags: ["Automation", "Cypress", "E2E"],
-        number: "04",
-    },
-    {
-        title: "Performance Testing with k6",
-        issuer: "Grafana Labs",
-        date: "Nov 2024",
-        credentialUrl: "#",
-        tags: ["Performance", "k6", "Load Testing"],
-        number: "05",
-    },
-    {
-        title: "React - The Complete Guide",
-        issuer: "Udemy",
-        date: "Aug 2023",
-        credentialUrl: "#",
-        tags: ["Frontend", "React", "JavaScript"],
-        number: "06",
-    },
 ];
 
 const CERTS_PER_PAGE = 4;

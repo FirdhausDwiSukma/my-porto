@@ -49,7 +49,7 @@ export const Hero = () => {
                         className="border-2 border-[#000] bg-[#000] px-4 py-1.5 text-xs font-bold text-[#FFE500] uppercase tracking-widest self-start"
                         style={{ boxShadow: "3px 3px 0px rgba(0,0,0,0.2)" }}
                     >
-                        👋 Available for opportunities
+                        Available for opportunities
                     </motion.div>
 
                     {/* Name */}
