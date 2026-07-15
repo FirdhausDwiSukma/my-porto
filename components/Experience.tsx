@@ -6,7 +6,7 @@ const experience = [
     {
         role: "Junior QA Engineer",
         company: "PT. Eigerindo MPI",
-        date: "2025 - 2026",
+        date: "Nov 2025 - May 2026",
         description: "Led manual and automated quality assurance initiatives to deliver highly reliable software systems.",
         points: [
             "Created and managed comprehensive test cases and executed regression testing across multiple projects to ensure system stability following updates or feature releases.",
@@ -21,7 +21,7 @@ const experience = [
     {
         role: "Junior QA Engineer",
         company: "PT. Neuronworks Indonesia",
-        date: "2023",
+        date: "Feb 2023 - Aug 2025",
         description: "Performed manual and automated testing for web and mobile applications to guarantee functional integrity.",
         points: [
             "Tested the functionality of features in applications under development.",
