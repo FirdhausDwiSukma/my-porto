@@ -22,7 +22,7 @@ const projects = [
     },
     {
         title: "Dashtern - Dashboard Intern",
-        description: "Dashboard intern for management intern in company.",
+        description: "Dashtern - Dashboard Intern is a dashboard application for managing interns, featuring attendance tracking, task activity and progress monitoring, as well as a 9-grid box display for a concise and organized overview of intern work status.",
         tags: ["React", "TypeScript", "Tailwind", "Golang", "PostgreSQL"],
         number: "03",
     },
