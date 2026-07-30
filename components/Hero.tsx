@@ -77,7 +77,7 @@ export const Hero = () => {
                         className="border-2 border-[#000] bg-[#000] px-4 py-1.5 text-xs font-bold text-[#FFE500] uppercase tracking-widest self-start"
                         style={{ boxShadow: "3px 3px 0px rgba(0,0,0,0.2)" }}
                     >
-                        Available for opportunities
+                        Junior Quality Assurance Engineer
                     </motion.div>
 
                     {/* Name */}
@@ -101,6 +101,7 @@ export const Hero = () => {
                         <span>→</span>
                         <span>Available for</span>
                         <span className="border border-[#000]/20 px-2 py-0.5">QA Engineer</span>
+                        <span className="border border-[#000]/20 px-2 py-0.5">Manual QA</span>
                     </div>
 
                     <div className="flex flex-col items-start gap-4 sm:flex-row">

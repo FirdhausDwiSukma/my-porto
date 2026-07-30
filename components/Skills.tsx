@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
-    Code2, Database, Layout, Server, Settings, Smartphone,
+    Code2, Database, Braces , Layout, Server, Settings, Smartphone,
     Terminal, TestTube, Globe, Cpu, Layers, Box, GitBranch, Monitor
 } from "lucide-react";
 
@@ -20,7 +20,8 @@ const originalSkills = [
     { name: "Mocha", icon: Box },
     { name: "CI/CD", icon: Layers },
     { name: "Chai", icon: Cpu },
-    { name: "Jmeter", icon: Database },
+    { name: "SQL", icon: Database },
+    { name: "Jmeter", icon: Braces },
 ];
 
 const skills = [...originalSkills, ...originalSkills];

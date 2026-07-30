@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const skills = [
     { category: "QA Engineering", items: ["SDLC", "STLC","Software Testing Artifacts", "Cypress", "Automation Testing", "Manual Testing", "Perfomance Test"] },
     { category: "Frontend & Backend", items: ["React", "Laravel", "Tailwind", "Javascript"] },
-    { category: "QA Tools", items: ["Git", "Postman", "Jmeter", "k6"] },
+    { category: "QA Tools", items: ["Git", "Postman", "SQL", "Jmeter", "k6"] },
 ];
 
 export const About = () => {
