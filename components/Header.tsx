@@ -85,6 +85,13 @@ export const Header = () => {
                             {item.name}
                         </Link>
                     ))}
+                    <a
+                        href="#contact"
+                        className="block text-sm font-bold text-[#000] uppercase tracking-wider hover:bg-[#000] hover:text-[#FFE500] px-4 py-2 transition-all border-t-2 border-dashed border-[#000]/20 mt-1 pt-3"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        Contact &#8599;
+                    </a>
                 </motion.div>
             )}
         </motion.header>
