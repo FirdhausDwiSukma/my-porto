@@ -1,11 +1,39 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
 import { ArrowRight, Linkedin } from "lucide-react";
 import { WaveGraph } from "./WaveGraph";
 
+const FULL_NAME = "Firdhaus Dwi Sukma";
+const TYPING_SPEED = 100; // ms per character
+
 export const Hero = () => {
+    const [displayedText, setDisplayedText] = useState("");
+    const [showCursor, setShowCursor] = useState(true);
+    const [doneTyping, setDoneTyping] = useState(false);
+
+    useEffect(() => {
+        let charIndex = 0;
+        const interval = setInterval(() => {
+            charIndex++;
+            setDisplayedText(FULL_NAME.slice(0, charIndex));
+            if (charIndex >= FULL_NAME.length) {
+                clearInterval(interval);
+                setDoneTyping(true);
+            }
+        }, TYPING_SPEED);
+        return () => clearInterval(interval);
+    }, []);
+
+    // Blinking cursor
+    useEffect(() => {
+        const blink = setInterval(() => {
+            setShowCursor((prev) => !prev);
+        }, 530);
+        return () => clearInterval(blink);
+    }, []);
     return (
         <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20 bg-[#FFE500]">
             {/* Decorative grid background */}
@@ -54,25 +82,14 @@ export const Hero = () => {
 
                     {/* Name */}
                     <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl leading-[0.9] text-[#000]">
-                        {"Firdhaus Dwi Sukma".split(" ").map((word, wordIndex) => {
-                            const previousChars = "Firdhaus Dwi Sukma".split(" ").slice(0, wordIndex).join(" ").length;
-                            const delayOffset = wordIndex > 0 ? (previousChars + 1) * 0.04 : 0;
-                            return (
-                                <span key={wordIndex} className="inline-block mr-[0.2em]">
-                                    {word.split("").map((char, charIndex) => (
-                                        <motion.span
-                                            key={charIndex}
-                                            className="inline-block"
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{ delay: delayOffset + charIndex * 0.04, duration: 0.01 }}
-                                        >
-                                            {char}
-                                        </motion.span>
-                                    ))}
-                                </span>
-                            );
-                        })}
+                        {displayedText}
+                        <span
+                            className="inline-block w-[3px] h-[0.8em] bg-[#000] align-middle ml-1 translate-y-[0.05em]"
+                            style={{
+                                opacity: showCursor ? 1 : 0,
+                                transition: "opacity 0.1s",
+                            }}
+                        />
                     </h1>
 
                     <p className="max-w-xl text-base text-[#000]/60 sm:text-lg font-medium">

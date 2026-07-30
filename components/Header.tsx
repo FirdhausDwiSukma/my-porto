@@ -9,8 +9,7 @@ const navItems = [
     { name: "Skills", href: "#skills" },
     { name: "Certifications", href: "#certifications" },
     { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: "Experience", href: "#experience" }
 ];
 
 export const Header = () => {
@@ -47,15 +46,14 @@ export const Header = () => {
                     {/* Motion+ style button */}
                     <div className="ml-4 flex items-center gap-3">
                         <a
-                            href="https://www.linkedin.com/in/firdhausdwisukma/"
-                            target="_blank"
+                            href="#contact"
                             rel="noopener noreferrer"
                             className="border-2 border-[#000] px-3 py-1.5 text-[10px] font-extrabold text-[#000] uppercase tracking-widest hover:bg-[#000] hover:text-[#FFE500] transition-all relative"
                             style={{
                                 borderStyle: "dashed",
                             }}
                         >
-                            LinkedIn &#8599;
+                            Contact &#8599;
                         </a>
                     </div>
                 </nav>
