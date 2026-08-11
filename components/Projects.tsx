@@ -27,6 +27,13 @@ const projects = [
         number: "03",
         hideLinks: true,
     },
+    {
+        title: "WMS Mobile Local",
+        description: "WMS Mobile Local is a feature development project for offline mode on the WMS Mobile application, covering the Move Request, Inventory Move Request, and Inventory View features that remain usable without a cloud connection. My role was to create test cases and bug reports, test data transfer across 3 related database tables under offline conditions, and ensure data synchronization runs correctly once the device reconnects online.",
+        tags: ["Manual Testing", "Test Case", "Bug Report"],
+        number: "04",
+        hideLinks: true,
+    },
     // {
     //     title: "Dashtern - Dashboard Intern",
     //     description: "Dashtern - Dashboard Intern is a dashboard application for managing interns, featuring attendance tracking, task activity and progress monitoring, as well as a 9-grid box display for a concise and organized overview of intern work status.",
@@ -37,21 +44,21 @@ const projects = [
         title: "Speech to Text Correction for Indonesian Early Marriage Counseling Chatbots Using IndoRoBERTa and Mistral-7B",
         description: "NLP research using IndoRoBERTa and Mistral-7B for early marriage counseling chatbot correction.",
         tags: ["NLP", "AI", "IndoRoBERTa", "Mistral-7B", "LLM"],
-        number: "04",
+        number: "05",
         journal: "https://journals.telkomuniversity.ac.id/indojc/article/view/9708",
     },
     {
         title: "ARFI - Augmented Reality Fitness",
         description: "ARFI (Augmented Reality Fitness) is a virtual fitness coaching app built with Android Studio and Kotlin, integrated with Snapchat AR (Lens Studio/Camera Kit) for real-time body movement detection. It tracks users' movements during workouts and provides interactive visual guidance, delivering a more immersive and engaging fitness experience.",
         tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
-        number: "05",
+        number: "06",
         github: "https://github.com/FirdhausDwiSukma/ARFI",
     },
     {
         title: "CoinCoffe - Find Coffee Nearby",
         description: "A clean, minimal app to find nearby coffee shops, built with Kotlin and Firebase.",
         tags: ["Android Studio", "Kotlin", "Firebase"],
-        number: "06",
+        number: "07",
     },
 ];
 
