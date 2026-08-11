@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, FileText } from "lucide-react";
 
 const projects = [
     {
@@ -34,21 +34,23 @@ const projects = [
     //     number: "03",
     // },
     {
+        title: "Speech to Text Correction for Indonesian Early Marriage Counseling Chatbots Using IndoRoBERTa and Mistral-7B",
+        description: "NLP research using IndoRoBERTa and Mistral-7B for early marriage counseling chatbot correction.",
+        tags: ["NLP", "AI", "IndoRoBERTa", "Mistral-7B", "LLM"],
+        number: "04",
+        journal: "https://journals.telkomuniversity.ac.id/indojc/article/view/9708",
+    },
+    {
         title: "ARFI - Augmented Reality Fitness",
         description: "ARFI (Augmented Reality Fitness) is a virtual fitness coaching app built with Android Studio and Kotlin, integrated with Snapchat AR (Lens Studio/Camera Kit) for real-time body movement detection. It tracks users' movements during workouts and provides interactive visual guidance, delivering a more immersive and engaging fitness experience.",
         tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
-        number: "04",
+        number: "05",
+        github: "https://github.com/FirdhausDwiSukma/ARFI",
     },
     {
         title: "CoinCoffe - Find Coffee Nearby",
         description: "A clean, minimal app to find nearby coffee shops, built with Kotlin and Firebase.",
         tags: ["Android Studio", "Kotlin", "Firebase"],
-        number: "05",
-    },
-    {
-        title: "Speech to Text Correction for Indonesian Chatbots",
-        description: "NLP research using IndoRoBERTa and Mistral-7B for early marriage counseling chatbot correction.",
-        tags: ["NLP", "AI", "IndoRoBERTa", "Mistral-7B", "LLM"],
         number: "06",
     },
 ];
@@ -119,14 +121,29 @@ export const Projects = () => {
                                     <p className="mb-6 flex-1 text-xs text-white/60 font-medium leading-relaxed">
                                         {project.description}
                                     </p>
-                                    {!project.hideLinks && (
+                                    {!(project as any).hideLinks && (
                                         <div className="flex gap-3 mt-auto">
-                                            <Button variant="dark-outline" size="sm" className="flex-1 gap-2">
-                                                <Github className="w-4 h-4" /> Code
-                                            </Button>
-                                            <Button variant="dark-primary" size="sm" className="flex-1 gap-2">
-                                                <ExternalLink className="w-4 h-4" /> Live
-                                            </Button>
+                                            {(project as any).github && (
+                                                <a href={(project as any).github} target="_blank" rel="noopener noreferrer" className="flex-1">
+                                                    <Button variant="dark-outline" size="sm" className="w-full gap-2">
+                                                        <Github className="w-4 h-4" /> Code
+                                                    </Button>
+                                                </a>
+                                            )}
+                                            {(project as any).live && (
+                                                <a href={(project as any).live} target="_blank" rel="noopener noreferrer" className="flex-1">
+                                                    <Button variant="dark-primary" size="sm" className="w-full gap-2">
+                                                        <ExternalLink className="w-4 h-4" /> Live
+                                                    </Button>
+                                                </a>
+                                            )}
+                                            {(project as any).journal && (
+                                                <a href={(project as any).journal} target="_blank" rel="noopener noreferrer" className="flex-1">
+                                                    <Button variant="dark-primary" size="sm" className="w-full gap-2">
+                                                        <FileText className="w-4 h-4" /> Journal
+                                                    </Button>
+                                                </a>
+                                            )}
                                         </div>
                                     )}
                                 </div>
