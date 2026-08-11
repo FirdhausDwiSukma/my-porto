@@ -51,58 +51,102 @@ export const Experience = () => {
                     <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white mb-4 uppercase">Work Experience</h2>
                 </motion.div>
 
-                <div className="space-y-6">
-                    {experience.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.15 }}
-                        >
+                <div className="relative">
+                    {experience.map((item, index) => {
+                        const isFirst = index === 0;
+                        return (
                             <motion.div
-                                className="border-2 border-[#FFE500] bg-[#111] overflow-hidden"
-                                style={{ boxShadow: "5px 5px 0px #FFE500" }}
-                                whileHover={{ x: -3, y: -3, boxShadow: "8px 8px 0px #FFE500" }}
+                                key={index}
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.15 }}
+                                className="relative flex gap-6 md:gap-10 pb-10 last:pb-0"
                             >
-                                {/* Colored top bar */}
-                                <div className="h-2 border-b-2 border-[#FFE500] bg-[#FFE500]" />
-                                <div className="p-6 md:p-8">
-                                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                                        <div className="flex-1">
-                                            <div className="flex items-center gap-3 mb-2 flex-wrap">
-                                                <h3 className="text-xl font-extrabold text-white uppercase">{item.role}</h3>
-                                                {item.status && (
-                                                    <span className="border-2 border-[#FFE500] bg-[#FFE500] text-[#000] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-widest">
-                                                        {item.status}
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <p className="text-sm font-bold text-white/40 mb-4 uppercase tracking-wide">{item.company}</p>
-                                            <p className="text-white/60 font-medium leading-relaxed mb-4 text-sm">{item.description}</p>
-                                            {item.points && (
-                                                <ul className="space-y-3 pl-1">
-                                                    {item.points.map((point, pIdx) => (
-                                                        <li key={pIdx} className="flex items-start gap-3 text-xs font-semibold text-white/60 leading-relaxed">
-                                                            <span
-                                                                className="w-4 h-4 border-2 border-[#FFE500] flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-extrabold bg-[#FFE500] text-[#000]"
-                                                            >
-                                                                ✓
-                                                            </span>
-                                                            <span>{point}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                        </div>
-                                        <div className="border-2 border-[#FFE500] bg-[#000] text-[#FFE500] px-4 py-2 text-xs font-extrabold whitespace-nowrap self-start uppercase tracking-widest">
-                                            {item.date}
-                                        </div>
+                                {/* Timeline column */}
+                                <div className="relative flex flex-col items-center">
+                                    {/* Timeline dot */}
+                                    <div className="relative z-10 flex items-center justify-center">
+                                        {/* Glow rings for first item */}
+                                        {isFirst && (
+                                            <>
+                                                <motion.div
+                                                    className="absolute w-10 h-10 rounded-full border-2 border-[#FFE500]/30"
+                                                    animate={{ scale: [1, 1.6, 1], opacity: [0.5, 0, 0.5] }}
+                                                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                                                />
+                                                <motion.div
+                                                    className="absolute w-7 h-7 rounded-full border border-[#FFE500]/40"
+                                                    animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0.1, 0.6] }}
+                                                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                                                />
+                                                <div
+                                                    className="absolute w-5 h-5 rounded-full bg-[#FFE500]/20 blur-md"
+                                                />
+                                            </>
+                                        )}
+                                        {/* The dot itself */}
+                                        <div
+                                            className={`w-4 h-4 rounded-full border-2 border-[#FFE500] ${
+                                                isFirst
+                                                    ? "bg-[#FFE500] shadow-[0_0_12px_#FFE500,0_0_24px_#FFE500aa]"
+                                                    : "bg-[#FFE500]/70 shadow-[0_0_6px_#FFE50066,0_0_10px_#FFE50033]"
+                                            }`}
+                                        />
                                     </div>
+                                    {/* Vertical line */}
+                                    {index < experience.length - 1 && (
+                                        <div className="flex-1 w-[2px] bg-gradient-to-b from-[#FFE500] to-[#FFE500]/30 mt-1" />
+                                    )}
+                                </div>
+
+                                {/* Experience card */}
+                                <div className="flex-1 pb-2">
+                                    <motion.div
+                                        className="border-2 border-[#FFE500] bg-[#111] overflow-hidden"
+                                        style={{ boxShadow: "5px 5px 0px #FFE500" }}
+                                        whileHover={{ x: -3, y: -3, boxShadow: "8px 8px 0px #FFE500" }}
+                                    >
+                                        {/* Colored top bar */}
+                                        <div className="h-2 border-b-2 border-[#FFE500] bg-[#FFE500]" />
+                                        <div className="p-6 md:p-8">
+                                            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                                                <div className="flex-1">
+                                                    <div className="flex items-center gap-3 mb-2 flex-wrap">
+                                                        <h3 className="text-xl font-extrabold text-white uppercase">{item.role}</h3>
+                                                        {item.status && (
+                                                            <span className="border-2 border-[#FFE500] bg-[#FFE500] text-[#000] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-widest">
+                                                                {item.status}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <p className="text-sm font-bold text-white/40 mb-4 uppercase tracking-wide">{item.company}</p>
+                                                    <p className="text-white/60 font-medium leading-relaxed mb-4 text-sm">{item.description}</p>
+                                                    {item.points && (
+                                                        <ul className="space-y-3 pl-1">
+                                                            {item.points.map((point, pIdx) => (
+                                                                <li key={pIdx} className="flex items-start gap-3 text-xs font-semibold text-white/60 leading-relaxed">
+                                                                    <span
+                                                                        className="w-4 h-4 border-2 border-[#FFE500] flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-extrabold bg-[#FFE500] text-[#000]"
+                                                                    >
+                                                                        ✓
+                                                                    </span>
+                                                                    <span>{point}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+                                                </div>
+                                                <div className="border-2 border-[#FFE500] bg-[#000] text-[#FFE500] px-4 py-2 text-xs font-extrabold whitespace-nowrap self-start uppercase tracking-widest">
+                                                    {item.date}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
                                 </div>
                             </motion.div>
-                        </motion.div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>
