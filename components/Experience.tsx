@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const experience = [
     {
-        role: "Junior QA Engineer",
+        role: "Junior QA Engineer Intern",
         company: "PT. Eigerindo MPI",
         date: "Nov 2025 - May 2026",
         description: "Led manual and automated quality assurance initiatives to deliver highly reliable software systems.",
@@ -19,7 +19,7 @@ const experience = [
         status: "Current",
     },
     {
-        role: "Junior QA Engineer",
+        role: "Junior QA Engineer Intern",
         company: "PT. Neuronworks Indonesia",
         date: "Feb 2023 - Aug 2025",
         description: "Performed manual and automated testing for web and mobile applications to guarantee functional integrity.",
