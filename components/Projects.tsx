@@ -10,55 +10,47 @@ const projects = [
         title: "Loyalty - Eiger Adventure Club",
         description: "A web-based member loyalty application for Eiger Adventure Club that lets users register and redeem points for discounts at offline or online stores. Personally managed manual and automated testing, verified complex calculation logic for earning points, designed detailed test cases, created P(0) regression testing lists, and compiled pre-release bug reports to guarantee a seamless go-live.",
         tags: ["Automation Testing", "Manual Testing", "Software Testing Artifacts"],
-        number: "01",
         hideLinks: true,
     },
     {
         title: "Eiger - B2C Packaging Bubble Mailer",
         description: "An inventory and calculation system designed to track and deduct bubble mailer (bubble wrap) packaging usage, integrated directly with SAP ERP for automated stock deduction. Personally served as the QA lead responsible for formulating test plans, writing comprehensive test cases, and executing both manual and automated testing to ensure seamless ERP integration.",
         tags: ["Automation Testing", "Manual Testing", "Software Testing Artifacts"],
-        number: "02",
         hideLinks: true,
     },
     {
         title: "Eiger - B2C Automation Testing",
         description: "B2C - Automation Testing is an automation testing project for the OMS module on the B2C website, covering the process flow from create order, packing, picking, to manifest. This OMS receives orders from the Eiger Adventure e-commerce website. This automation simplifies the testing process whenever there are changes or issues in the module, and is integrated with Jenkins through CI/CD.",
         tags: ["Automation Testing", "Mocha", "Chai", "Supertest"],
-        number: "03",
         hideLinks: true,
     },
     {
         title: "Eiger - WMS Mobile Local",
         description: "WMS Mobile Local is a feature development project for offline mode on the WMS Mobile application, covering the Move Request, Inventory Move Request, and Inventory View features that remain usable without a cloud connection. My role was to create test cases and bug reports, test data transfer across 3 related database tables under offline conditions, and ensure data synchronization runs correctly once the device reconnects online.",
         tags: ["Manual Testing", "Test Case", "Bug Report"],
-        number: "04",
         hideLinks: true,
     },
     // {
     //     title: "Dashtern - Dashboard Intern",
     //     description: "Dashtern - Dashboard Intern is a dashboard application for managing interns, featuring attendance tracking, task activity and progress monitoring, as well as a 9-grid box display for a concise and organized overview of intern work status.",
     //     tags: ["React", "TypeScript", "Tailwind", "Golang", "PostgreSQL"],
-    //     number: "03",
     // },
     {
         title: "Speech to Text Correction for Indonesian Early Marriage Counseling Chatbots Using IndoRoBERTa and Mistral-7B",
         description: "NLP research using IndoRoBERTa and Mistral-7B for early marriage counseling chatbot correction.",
         tags: ["NLP", "AI", "IndoRoBERTa", "Mistral-7B", "LLM"],
-        number: "05",
         journal: "https://journals.telkomuniversity.ac.id/indojc/article/view/9708",
     },
     {
         title: "ARFI - Augmented Reality Fitness",
         description: "ARFI (Augmented Reality Fitness) is a virtual fitness coaching app built with Android Studio and Kotlin, integrated with Snapchat AR (Lens Studio/Camera Kit) for real-time body movement detection. It tracks users' movements during workouts and provides interactive visual guidance, delivering a more immersive and engaging fitness experience.",
         tags: ["Android Studio", "Kotlin", "Firebase", "Snapchat", "AR"],
-        number: "06",
         github: "https://github.com/FirdhausDwiSukma/ARFI",
     },
     {
         title: "CoinCoffe - Find Coffee Nearby",
         description: "A clean, minimal app to find nearby coffee shops, built with Kotlin and Firebase.",
         tags: ["Android Studio", "Kotlin", "Firebase"],
-        number: "07",
     },
 ];
 
@@ -88,9 +80,11 @@ export const Projects = () => {
                 </motion.div>
 
                 <div className="grid gap-6 md:grid-cols-2">
-                    {displayedProjects.map((project, index) => (
+                    {displayedProjects.map((project, index) => {
+                        const projectNumber = String(currentPage * projectsPerPage + index + 1).padStart(2, '0');
+                        return (
                         <motion.div
-                            key={project.number}
+                            key={projectNumber}
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: (index % projectsPerPage) * 0.08 }}
@@ -103,7 +97,7 @@ export const Projects = () => {
                                 {/* Header with number */}
                                 <div className="h-24 border-b-2 border-[#FFE500] flex items-end p-4 relative overflow-hidden bg-[#000]">
                                     <span className="text-6xl font-extrabold text-[#FFE500]/10 absolute right-4 top-1 leading-none select-none">
-                                        {project.number}
+                                        {projectNumber}
                                     </span>
                                     <div className="flex flex-wrap gap-2 relative z-10">
                                         {project.tags.slice(0, 3).map((tag) => (
@@ -156,7 +150,8 @@ export const Projects = () => {
                                 </div>
                             </motion.div>
                         </motion.div>
-                    ))}
+                    );
+                    })}
                 </div>
 
                 {projects.length > projectsPerPage && (
