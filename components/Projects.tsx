@@ -21,11 +21,18 @@ const projects = [
         hideLinks: true,
     },
     {
-        title: "Dashtern - Dashboard Intern",
-        description: "Dashtern - Dashboard Intern is a dashboard application for managing interns, featuring attendance tracking, task activity and progress monitoring, as well as a 9-grid box display for a concise and organized overview of intern work status.",
-        tags: ["React", "TypeScript", "Tailwind", "Golang", "PostgreSQL"],
+        title: "B2C - Automation Testing",
+        description: "B2C - Automation Testing is an automation testing project for the OMS module on the B2C website, covering the process flow from create order, packing, picking, to manifest. This OMS receives orders from the Eiger Adventure e-commerce website. This automation simplifies the testing process whenever there are changes or issues in the module, and is integrated with Jenkins through CI/CD.",
+        tags: ["Automation Testing", "Mocha", "Chai", "Supertest"],
         number: "03",
+        hideLinks: true,
     },
+    // {
+    //     title: "Dashtern - Dashboard Intern",
+    //     description: "Dashtern - Dashboard Intern is a dashboard application for managing interns, featuring attendance tracking, task activity and progress monitoring, as well as a 9-grid box display for a concise and organized overview of intern work status.",
+    //     tags: ["React", "TypeScript", "Tailwind", "Golang", "PostgreSQL"],
+    //     number: "03",
+    // },
     {
         title: "ARFI - Augmented Reality Fitness",
         description: "ARFI (Augmented Reality Fitness) is a virtual fitness coaching app built with Android Studio and Kotlin, integrated with Snapchat AR (Lens Studio/Camera Kit) for real-time body movement detection. It tracks users' movements during workouts and provides interactive visual guidance, delivering a more immersive and engaging fitness experience.",
