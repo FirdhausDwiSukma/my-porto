@@ -33,6 +33,15 @@ const certifications = [
         number: "03",
         image: "/certificates/manajemen-proyek.png",
     },
+    {
+        title: "Quality Assurance Engineer Intern",
+        issuer: "PT.Neuronworks Indonesia",
+        date: "Feb 2023 - Aug 2023",
+        tags: ["QA Engineer"],
+        number: "04",
+        image: "/certificates/sertif-magang-neuron.jpg",
+    },
+    
 ];
 
 const CERTS_PER_PAGE = 4;
