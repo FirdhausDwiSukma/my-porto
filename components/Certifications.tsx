@@ -142,7 +142,7 @@ export const Certifications = () => {
                                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
                                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-[#FFE500] bg-[#FFE500] text-[#000] px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-widest flex items-center gap-1.5">
                                                         <ZoomIn className="w-3 h-3" />
-                                                        Lihat Sertifikat
+                                                        View Certificate
                                                     </div>
                                                 </div>
                                             </div>
