@@ -161,7 +161,16 @@ export const Projects = () => {
                         </span>
                         <div className="flex gap-4">
                             <button
-                                onClick={() => setCurrentPage((prev) => Math.max(0, prev - 1))}
+                                onClick={() => {
+                                    setCurrentPage((prev) => Math.max(0, prev - 1));
+                                    setTimeout(() => {
+                                        const el = document.getElementById("projects");
+                                        if (el) {
+                                            const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                                            window.scrollTo({ top: y, behavior: "smooth" });
+                                        }
+                                    }, 50);
+                                }}
                                 disabled={currentPage === 0}
                                 className="border-2 border-[#FFE500] bg-[#FFE500] px-5 py-2 text-xs font-extrabold text-[#000] uppercase tracking-wider disabled:opacity-40 disabled:pointer-events-none transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-0 active:translate-y-0"
                                 style={{ boxShadow: currentPage === 0 ? "none" : "4px 4px 0px #FFE500" }}
@@ -169,7 +178,16 @@ export const Projects = () => {
                                 ← Prev
                             </button>
                             <button
-                                onClick={() => setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))}
+                                onClick={() => {
+                                    setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1));
+                                    setTimeout(() => {
+                                        const el = document.getElementById("projects");
+                                        if (el) {
+                                            const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                                            window.scrollTo({ top: y, behavior: "smooth" });
+                                        }
+                                    }, 50);
+                                }}
                                 disabled={currentPage === totalPages - 1}
                                 className="border-2 border-[#FFE500] bg-[#000] px-5 py-2 text-xs font-extrabold text-[#FFE500] uppercase tracking-wider disabled:opacity-40 disabled:pointer-events-none transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-0 active:translate-y-0"
                                 style={{ boxShadow: currentPage === totalPages - 1 ? "none" : "4px 4px 0px #FFE500" }}
