@@ -7,12 +7,27 @@ import Image from "next/image";
 
 const certifications = [
     {
+        title: "Belajar Dasar Structured Query Language (SQL)",
+        issuer: "Dicoding Indonesia",
+        date: "Aug 2026 - Aug 2029",
+        credentialUrl: "https://www.dicoding.com/certificates/MEPJM5V36P3V",
+        tags: ["SQL", "Basis Data"],
+        image: "/certificates/query-sql.png",
+    },
+    {
+        title: "Belajar Dasar Cloud dan Gen AI di AWS",
+        issuer: "Dicoding Indonesia",
+        date: "Aug 2026 - Aug 2029",
+        credentialUrl: "https://www.dicoding.com/certificates/L4PQWRNO7PO1",
+        tags: ["Cloud", "AI", "AWS"],
+        image: "/certificates/dasar-cloud.png",
+    },
+    {
         title: "Belajar Dasar Data Science",
         issuer: "Dicoding Indonesia",
         date: "Sep 2024 - Sep 2027",
         credentialUrl: "https://www.dicoding.com/certificates/1RXY2N6G3XVM",
-        tags: ["Data Science", "Foundation"],
-        number: "01",
+        tags: ["Data Science"],
         image: "/certificates/data-science.png",
     },
     {
@@ -21,7 +36,6 @@ const certifications = [
         date: "Sep 2024 - Sep 2027",
         credentialUrl: "https://www.dicoding.com/certificates/EYX4VN4MWZDL",
         tags: ["Machine Learning", "Data", "AI"],
-        number: "02",
         image: "/certificates/dasar-ai.png",
     },
     {
@@ -30,7 +44,6 @@ const certifications = [
         date: "Sep 2024 - Sep 2027",
         credentialUrl: "https://www.dicoding.com/certificates/L4PQ1KNQOXO1",
         tags: ["Project Management", "Foundation"],
-        number: "03",
         image: "/certificates/manajemen-proyek.png",
     },
     {
@@ -38,7 +51,6 @@ const certifications = [
         issuer: "PT.Neuronworks Indonesia",
         date: "Feb 2023 - Aug 2023",
         tags: ["QA Engineer"],
-        number: "04",
         image: "/certificates/sertif-magang-neuron.jpg",
     },
     
@@ -87,9 +99,11 @@ export const Certifications = () => {
                     </motion.div>
 
                     <div className="grid gap-6 md:grid-cols-2">
-                        {displayed.map((cert, index) => (
+                        {displayed.map((cert, index) => {
+                            const number = String(currentPage * CERTS_PER_PAGE + index + 1).padStart(2, "0");
+                            return (
                             <motion.div
-                                key={cert.number}
+                                key={number}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.3, delay: (index % CERTS_PER_PAGE) * 0.08 }}
@@ -102,7 +116,7 @@ export const Certifications = () => {
                                     {/* Header */}
                                     <div className="h-24 border-b-2 border-[#FFE500] flex items-end p-4 relative overflow-hidden bg-[#000]">
                                         <span className="text-6xl font-extrabold text-[#FFE500]/10 absolute right-4 top-1 leading-none select-none">
-                                            {cert.number}
+                                            {number}
                                         </span>
                                         <div className="flex flex-wrap gap-2 relative z-10">
                                             {cert.tags.map((tag) => (
@@ -172,7 +186,8 @@ export const Certifications = () => {
                                     </div>
                                 </motion.div>
                             </motion.div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     {certifications.length > CERTS_PER_PAGE && (
