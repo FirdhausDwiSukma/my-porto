@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Award, X, ZoomIn } from "lucide-react";
 import Image from "next/image";
@@ -60,6 +60,7 @@ const CERTS_PER_PAGE = 4;
 
 export const Certifications = () => {
     const [currentPage, setCurrentPage] = useState(0);
+    const sectionRef = useRef<HTMLElement>(null);
     const [lightboxImage, setLightboxImage] = useState<string | null>(null);
     const [lightboxTitle, setLightboxTitle] = useState<string>("");
     const totalPages = Math.ceil(certifications.length / CERTS_PER_PAGE);
@@ -80,7 +81,7 @@ export const Certifications = () => {
 
     return (
         <>
-            <section id="certifications" className="py-24 px-6 md:px-12 bg-[#0a0a0a] border-t border-white/5">
+            <section ref={sectionRef} id="certifications" className="py-24 px-6 md:px-12 bg-[#0a0a0a] border-t border-white/5">
                 <div className="max-w-6xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -197,7 +198,16 @@ export const Certifications = () => {
                             </span>
                             <div className="flex gap-4">
                                 <button
-                                    onClick={() => setCurrentPage((prev) => Math.max(0, prev - 1))}
+                                    onClick={() => {
+                                        setCurrentPage((prev) => Math.max(0, prev - 1));
+                                        setTimeout(() => {
+                                            const el = document.getElementById("certifications");
+                                            if (el) {
+                                                const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                                                window.scrollTo({ top: y, behavior: "smooth" });
+                                            }
+                                        }, 50);
+                                    }}
                                     disabled={currentPage === 0}
                                     className="border-2 border-[#FFE500] bg-[#FFE500] px-5 py-2 text-xs font-extrabold text-[#000] uppercase tracking-wider disabled:opacity-40 disabled:pointer-events-none transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-0 active:translate-y-0"
                                     style={{ boxShadow: currentPage === 0 ? "none" : "4px 4px 0px #FFE500" }}
@@ -205,7 +215,16 @@ export const Certifications = () => {
                                     ← Prev
                                 </button>
                                 <button
-                                    onClick={() => setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))}
+                                    onClick={() => {
+                                        setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1));
+                                        setTimeout(() => {
+                                            const el = document.getElementById("certifications");
+                                            if (el) {
+                                                const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                                                window.scrollTo({ top: y, behavior: "smooth" });
+                                            }
+                                        }, 50);
+                                    }}
                                     disabled={currentPage === totalPages - 1}
                                     className="border-2 border-[#FFE500] bg-[#000] px-5 py-2 text-xs font-extrabold text-[#FFE500] uppercase tracking-wider disabled:opacity-40 disabled:pointer-events-none transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] active:translate-x-0 active:translate-y-0"
                                     style={{ boxShadow: currentPage === totalPages - 1 ? "none" : "4px 4px 0px #FFE500" }}
